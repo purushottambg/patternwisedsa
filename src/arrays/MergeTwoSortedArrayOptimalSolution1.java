@@ -2,8 +2,8 @@ package arrays;
 
 public class MergeTwoSortedArrayOptimalSolution1 {
     public static void main(String[] args) {
-        int[] arr1 = {11,23,45,28,47};
-        int[] arr2 = {7,12,85};
+        int[] arr1 = {1,3,5,7};
+        int[] arr2 = {0,2,6,8,9};
 
         int[][] sortedArrays = sortArrays(arr1, arr2);
 
