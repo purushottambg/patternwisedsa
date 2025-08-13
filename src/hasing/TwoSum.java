@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class TwoSum {
     public static void main(String[] args) {
         System.out.println("Indexes that will add to 9 are:");
-        int[] indexes = twoSum(new int[]{2, 7, 11, 15,22}, 33 );
+        int[] indexes = twoSum(new int[]{3,2,4}, 6 );
 
         System.out.println(indexes[0]+" | "+indexes[1]);
     }
@@ -21,6 +21,7 @@ public class TwoSum {
             int rem = target-num;
             if (map.containsKey(rem)) {
                 int index = map.get(rem);
+                if(index==i) continue;
                 return new int[]{i, index};
             }
         }
