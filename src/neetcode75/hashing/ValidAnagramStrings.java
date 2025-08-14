@@ -9,28 +9,21 @@ public class ValidAnagramStrings {
         else System.out.println("Not an Anagram");
     }
     private static Boolean isAnagram(String s, String t){
+        if (s.length()!=t.length()) return false;
 
-        HashMap<Integer, Character> string1Map = new HashMap<>();
-        for (int i=0;i<s.length();i++){
-            string1Map.put(i, s.charAt(i));
+         HashMap<Character, Integer> map1 = new HashMap<>();
+         for (int i=0; i<s.length(); i++){
+             map1.put(s.charAt(i), map1.getOrDefault(s.charAt(i), 0)+1);
+         }
+
+        for (char c : t.toCharArray()){
+            if(!map1.containsKey(c))
+                return false;
+            map1.put(c, map1.get(c)-1);
+            if (map1.get(c)==0)
+                map1.remove(c);
         }
 
-        HashMap<Integer, Character> string2Map = new HashMap<>();
-        for (int i=0;i<t.length();i++){
-            string1Map.put(i, t.charAt(i));
-        }
-
-        for (Map.Entry<Integer, Character> string1: string1Map.entrySet()){
-            if(string2Map.containsValue(string1.getValue())){
-                string2Map.remove(string1.getValue());
-                string1Map.remove(string1.getValue());
-            }
-        }
-
-        if(string2Map.size()==0 && string2Map.size()==0)
-            return true;
-
-
-        return false;
+        return map1.isEmpty();
     }
 }
