@@ -1,19 +1,29 @@
 package neetcode75.arrays;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LongestConsecutiveSequence {
     public static void main(String[] args) {
-        longestConsecutive(new int[] {100,102,100,101,101,101,4,3,2,3,2,1,1,1,1,2});
+        System.out.println("Longest Streak is:"+longestConsecutive(new int[] {100,102,100,101,101,101,4,3,2,3,2,1,1,1,1,2}));
     }
     public static int longestConsecutive(int[] nums) {
-        int[] arr = Arrays.stream(nums).distinct().sorted().toArray();
-        int len=1;
-        int initial=0;
-        for (int i=arr.length;  i>=0; i--){
-            int tempLen=1;
+        Set<Integer> set = new HashSet<>();
+        for (int i: nums) set.add(i);
 
+        int longest=1;
+        for (int n: set){
+            if (!set.contains(n-1)){
+                int streak=1;
+                int cur=n;
+                 while (set.contains(n+1)){
+                    n+=1;
+                    streak++;
+                }
+                longest=Math.max(longest, streak);
+            }
         }
-        return len;
+        return longest;
     }
 }
