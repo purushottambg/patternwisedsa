@@ -16,7 +16,6 @@ public class BestTineToBuyAndSellStock {
                 sell=profit[pointer];
             pointer++;
         }
-
         return Math.max(sell-buy,0);
     }
 }
