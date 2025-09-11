@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ReArrangeTheArray {
     public static void main(String[] args) {
-        int[] numArray = {2,3,4,5,6,7};
+        int[] numArray = {2,3,4,5};
         System.out.println("Before");
         Arrays.stream(numArray).forEach(System.out::print);
         for (int i = 0; i < numArray.length-1; i++) {
