@@ -7,21 +7,22 @@ public class LongestRepeatingCharReplacement {
     }
 
     public static int characterWithoutRepeat(String s, int k){
-        int longest=0,start=0,count=0;
-        int[] freqArray = new int[26];
+        int[] freqArray = new int[26]; //Frequency Holder
+        int start = 0, count = 0, result = 0;  //Pointers
 
-        for(int end=0; end<s.length();end++){
-            char c = s.charAt(end);
-            freqArray[c-'A']++;
-            count=Math.max(count, freqArray[c-'A']);
+        for(int end = 0; end < s.length(); end++) {   //Iteration Loop
+            char c = s.charAt(end);         //Last character in the window
+            freqArray[c - 'A']++;           // update the frequency
+            count = Math.max(count, freqArray[c - 'A']);  //highest frequency
 
-            if ((end - start+1) - count>k){
-                freqArray[s.charAt(start)-'A']--;
-                start++;
+            if ((end - start + 1) - count > k) {        //check if crossing the operations are needed more than the allowed
+                freqArray[s.charAt(start) - 'A']--;     // removing the frequency
+                start++;            // eliminate the starting elements
             }
-            count=Math.max(count, end-start);
+
+            result = Math.max(result, end - start + 1);  // Correct line for updating the final answer
         }
-        return count;
+        return result;
     }
 
     public static int characterReplacement(String s, int k){
