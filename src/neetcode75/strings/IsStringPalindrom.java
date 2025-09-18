@@ -2,7 +2,7 @@ package neetcode75.strings;
 
 public class IsStringPalindrom {
     public static void main(String[] args) {
-        if (isPalindrome("Was it a car or a cat I saw?")) System.out.println("Palindrome");
+        if (isPalindrome("race a car")) System.out.println("Palindrome");
         else System.out.println("Not Palindrome");
     }
 
