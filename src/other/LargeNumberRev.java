@@ -1,7 +1,7 @@
 package other;
 
 
-public class LargeNumerRev {
+public class LargeNumberRev {
     public static void main(String[] args) throws Exception{
         int num=32634934;
         Integer finalValue;
