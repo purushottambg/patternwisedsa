@@ -6,17 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FindMostKFrequentNumbers {
-    public static void main(String[] args) {
-        int[] kMostFrequent = topKFrequentByStream(new int[]{1,2,2,3,3,3}, 2);
-        for (int i: kMostFrequent){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        kMostFrequent = topKFrequentByBruteForce(new int[]{1,2,2,3,3,3,4}, 2);
-        for (int i: kMostFrequent){
-            System.out.print(i+" ");
-        }
-    }
+
 
     private static int[] topKFrequentByBruteForce(int[] nums, int k) {
          int[] results = new int[k];
